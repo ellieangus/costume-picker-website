@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spooky Costume Picker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bats" aria-hidden="true">
+    <span class="bat">🦇</span>
+    <span class="bat">🦇</span>
+    <span class="bat">🦇</span>
+  </div>
+
+  <main class="card">
+    <h1>🎃 Spooky Costume Picker 🎃</h1>
+    <p class="tagline">Can't decide what to be? Let the spirits choose for you.</p>
+
+    <section class="countdown" aria-live="polite">
+      <h2 id="countdown-label">Time until Halloween</h2>
+      <p id="countdown" class="countdown-time">--</p>
+    </section>
+
+    <section class="picker">
+      <label for="vibe">Pick your vibe:</label>
+      <select id="vibe">
+        <option value="any">Surprise me</option>
+        <option value="scary">Scary</option>
+        <option value="funny">Funny</option>
+        <option value="lastMinute">Last-minute</option>
+      </select>
+
+      <button id="summon" type="button">Summon a Costume</button>
+
+      <div id="result" class="result hidden" aria-live="polite">
+        <p id="costume-emoji" class="costume-emoji"></p>
+        <p id="costume-name" class="costume-name"></p>
+        <p id="costume-difficulty" class="costume-difficulty"></p>
+        <p id="costume-tip" class="costume-tip"></p>
+      </div>
+    </section>
+
+    <p class="summon-count">Costumes summoned: <span id="count">0</span></p>
+  </main>
+
+  <footer>
+    <p>Hosted on Amazon S3 &middot; Built with HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

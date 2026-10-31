@@ -1,0 +1,193 @@
+:root {
+  --bg-dark: #12051f;
+  --bg-mid: #2a0a3d;
+  --orange: #ff7518;
+  --orange-dark: #d65a00;
+  --green: #7cff6b;
+  --text: #f5e9ff;
+  --muted: #b9a3c9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, var(--bg-mid), var(--bg-dark) 70%);
+  overflow-x: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  padding: 32px 24px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.45);
+  border: 2px solid var(--orange);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 117, 24, 0.35);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.9rem;
+  color: var(--orange);
+  text-shadow: 0 0 10px rgba(255, 117, 24, 0.6);
+}
+
+.tagline {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+.countdown h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--muted);
+}
+
+.countdown-time {
+  margin: 4px 0 24px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--green);
+  font-variant-numeric: tabular-nums;
+}
+
+.picker label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+select,
+button {
+  font: inherit;
+  border-radius: 8px;
+}
+
+select {
+  width: 100%;
+  max-width: 260px;
+  padding: 8px;
+  margin-bottom: 16px;
+  color: var(--text);
+  background: var(--bg-mid);
+  border: 1px solid var(--muted);
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 28px;
+  font-weight: bold;
+  color: var(--bg-dark);
+  background: var(--orange);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+button:hover {
+  background: var(--orange-dark);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.result {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px dashed var(--green);
+  border-radius: 12px;
+  animation: rise 0.4s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+.costume-emoji {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.costume-name {
+  margin: 8px 0 4px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.costume-difficulty {
+  margin: 0 0 8px;
+  color: var(--orange);
+}
+
+.costume-tip {
+  margin: 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.summon-count {
+  margin: 24px 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+footer {
+  margin-top: 24px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Flying bats */
+.bats {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bat {
+  position: absolute;
+  font-size: 2rem;
+  animation: fly 12s linear infinite;
+}
+
+.bat:nth-child(1) { top: 10%; animation-delay: 0s; }
+.bat:nth-child(2) { top: 30%; animation-delay: 4s; font-size: 1.4rem; }
+.bat:nth-child(3) { top: 70%; animation-delay: 8s; font-size: 1.7rem; }
+
+@keyframes fly {
+  0%   { transform: translate(-10vw, 0); }
+  25%  { transform: translate(25vw, -30px); }
+  50%  { transform: translate(55vw, 20px); }
+  75%  { transform: translate(85vw, -20px); }
+  100% { transform: translate(110vw, 0); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bat,
+  .result {
+    animation: none;
+  }
+  .bats {
+    display: none;
+  }
+}
